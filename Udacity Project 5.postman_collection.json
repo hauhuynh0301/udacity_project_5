@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "d8841409-56b8-4a7d-b31d-dd2a1d84d00f",
+		"name": "Udacity Project 5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DIARIES",
+			"item": [
+				{
+					"name": "Get all diares",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/diaries",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"diaries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create diary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"test\",\r\n    \"conntent\":\"\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/diaries",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"diaries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update diary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Change the world\",\n\t\"content\": \"who do you think you are ?\",\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/diaries/8cf39bf7-33e7-4bb4-ac93-f6486b31176c",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"diaries",
+								"8cf39bf7-33e7-4bb4-ac93-f6486b31176c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete diary",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/diaries/1eb38dda-e2cc-4da2-88ba-2ff1c75c66ce",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"diaries",
+								"1eb38dda-e2cc-4da2-88ba-2ff1c75c66ce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find diary by name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"diaryName\":\"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://34n4zqxgr1.execute-api.us-east-1.amazonaws.com/dev/diaries/search",
+							"protocol": "https",
+							"host": [
+								"34n4zqxgr1",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"diaries",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiId",
+			"value": "uplk9vxj2k",
+			"type": "string"
+		},
+		{
+			"key": "authToken",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1uQlBXaTUxbFhEcFNFcWhMVUw4OSJ9.eyJpc3MiOiJodHRwczovL2Rldi1qZnpncHdidS51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjMxNmY2NzAyZWM1MWMxZTlkYzYwODM2IiwiYXVkIjoieWs1ZEd4ZFFQN3dVaHFsb2ZqYUNVNXhaTFh6WDZXemMiLCJpYXQiOjE2NjI5OTUwNzcsImV4cCI6MTY2MzAzMTA3NywiYXRfaGFzaCI6Ikt4UXdocWt3VzBtZVA3N0htcGY5cXciLCJzaWQiOiJqbUpBUWhlXzZScER1Unl2T1RSTUhWSHYtdW9yYm5zbiIsIm5vbmNlIjoiSEx6a2IzSTlIbG5HODM5UzFYWmw3Mkl3T3hiNUNncDAifQ.GQcl0-Lz3PEp92fIQBM-djww56kHuM7XN2pRzIvEQIaSGT_j8AjCiXvnZE30EkOjICYZ4DpxXHYgdh1EXSGfddN3JldSHQ6-WtwAg1DHt1r_fT54YiP_RT74COwNjUR9Oj3Ib4WHwMq5bmzfINN7iPs03RiYolkABqpCf2sHDCSGy78qLV-uNlaUMXp_Ovdp-BafijaWSByOu0wpiFfNndbf8DU3xY1nify9mcoC_X_YpeN94t2YQmVRANLqDvhuCjUdSUx-JLXa5V9bWocCuFGEBbnNTZ9qAJZqDaEKFv1GmKMyRwpfROcYj47LN_BV6tcOLehhE02hQ0oEMRXTAA",
+			"type": "string"
+		}
+	]
+}
